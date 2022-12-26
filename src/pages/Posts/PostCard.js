@@ -8,7 +8,7 @@ const PostCard = ({ postItem }) => {
   const dispatch = useDispatch();
   return (
     <div className="  mb-4">
-      <div className="card custom-card relative mb-5  w-64 border-black border-solid border-2  flex flex-col justify-center text-center p-1">
+      <div className="card custom-card relative mb-5 h-full  w-64 border-black border-solid border-2  flex flex-col  text-center p-1">
         <img
           src={`https://source.unsplash.com/collection/${postItem.id}/1600x900`}
           alt={postItem.title}
@@ -31,7 +31,7 @@ const PostCard = ({ postItem }) => {
           <EllipsisText text={postItem.body} length={"100"} />
         </div>
         <div>
-          <div className="card-footer bg-slate-200p-1  h-12 relative flex justify-center text-center">
+          <div className="card-footer bg-slate-200p-1  h-12 relative flex justify-center text-center bottom-1">
             <Link
               to={`/post/${postItem.id}`}
               className="btn btn-primary bg-orange-400 p-2 absolute ">

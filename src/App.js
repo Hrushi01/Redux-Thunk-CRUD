@@ -1,10 +1,10 @@
 import React from "react";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import AddPost from "./components/Posts/AddPost";
-import Post from "./components/Posts/Post";
-import UpdatePost from "./components/Posts/UpdatePost";
+import AddPost from "./pages/Posts/AddPost";
+import Post from "./pages/Posts/Post";
+import UpdatePost from "./pages/Posts/UpdatePost";
 import { Provider } from "react-redux";
 import store from "./redux/reducers/store";
 

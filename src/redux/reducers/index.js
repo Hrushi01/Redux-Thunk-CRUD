@@ -1,4 +1,4 @@
-import PostReducer from "./postReducer";
+// import PostReducer from "./postReducer";
 import { combineReducers } from "redux";
 import postReducer from "./postReducer";
 

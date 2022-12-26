@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPost, updatePost } from "../../redux/actions/postAction";
 import { useParams, useNavigate } from "react-router-dom";
@@ -12,17 +12,17 @@ const UpdatePost = () => {
   const [body, setBody] = useState("");
 
   useEffect(() => {
-    loadPost();
-  }, []);
-  useEffect(() => {
     if (post) {
       setTitle(post.title);
       setBody(post.body);
     }
   }, [post]);
-  const loadPost = () => {
+  const loadPost = useCallback(() => {
     dispatch(getPost(id));
-  };
+  }, [dispatch, id]);
+  useEffect(() => {
+    loadPost();
+  }, [loadPost]);
   const submitForm = (e) => {
     e.preventDefault();
     const update_post = {

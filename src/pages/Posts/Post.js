@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getPost } from "../../redux/actions/postAction";
 import { useParams } from "react-router-dom";
@@ -7,13 +7,13 @@ const Post = () => {
   const dispatch = useDispatch();
   const post = useSelector((state) => state.post.post);
   const { id } = useParams();
+  const loadPost = useCallback(() => {
+    dispatch(getPost(id));
+  }, [dispatch, id]);
+
   useEffect(() => {
     loadPost();
-  }, []);
-
-  const loadPost = () => {
-    dispatch(getPost(id));
-  };
+  }, [loadPost]);
 
   if (!post) {
     return <h1>loading..</h1>;
